@@ -143,7 +143,7 @@ float downTime(float timeOff)
 struct Restaurant
 {
     int tblsAvail {9};
-    int workers = 8;
+    int workers;
     int platesServed {24};
     float amFoodPerFamily = 79.48f;
     float hoursWorked = 86.77f;
@@ -186,7 +186,7 @@ struct Restaurant
 };
 
 Restaurant::Restaurant():
-workers()
+workers(8)
 {
     std::cout << "Restaurant Class" << std::endl;
 }
@@ -264,7 +264,7 @@ freqRange()
 
 void Speakers::produceAudio()
 {
-    while (time < 15)
+    while (time < 2)
     {
         std::cout << "Producing Audio!!!!!!!" << std::endl;
         ++time;
@@ -299,9 +299,9 @@ struct Equipment
         std::cout << "Equipment Class Destroyed!" << std::endl;
     }
 
-    void laundromatEquipment();
-    void restaurantEquipment();
-    void speakerEquipment();
+    void countLaundromatEquipment();
+    void countRestaurantEquipment();
+    void countSpeakerEquipment();
 };
 Equipment::Equipment():
 machine(20, 34),
@@ -314,19 +314,19 @@ tweaters()
     std::cout << "Equipment Class Created " << std::endl;
 }
 
-void Equipment::laundromatEquipment()
+void Equipment::countLaundromatEquipment()
 {
     std::cout << "Laundromat Machines in Inventory: " << machine.numWashers << std::endl;
     std::cout << "Laundromat Dryers in Inventory: " << machine.numDryers << std::endl;
 }
 
-void Equipment::restaurantEquipment()
+void Equipment::countRestaurantEquipment()
 {
-     std::cout << "Restaurant Workers: " << dishWasher.workers << std::endl;
+    std::cout << "Restaurant Workers: " << dishWasher.workers << std::endl;
     std::cout << "Amount of Server Carriers In Inventory: " << carrier.amOfPeopleServed << std::endl;
 }
 
-void Equipment::speakerEquipment()
+void Equipment::countSpeakerEquipment()
 {
     std::cout << "Speaker Size: " << tweaters.size << std::endl;
     std::cout << "Speaker Frequency Range: " << tweaters.freqRange << std::endl;
@@ -348,8 +348,8 @@ struct Data
         std::cout << "Data Class Destroyed!" << std::endl;
     }
     
-    void laundromatData();
-    void restaurantData();
+    void collectLaundromatData();
+    void collectRestaurantData();
 };
 
 Data::Data():
@@ -361,13 +361,13 @@ components(624.54f, 215.34f, 12)
     std::cout << "Data Class Constructed!" << std::endl;
 }
 
-void Data::laundromatData()
+void Data::collectLaundromatData()
 {
     int equip = equipment.numWashers * equipment.numDryers;
     std::cout << "Laundromat Equipment Amount: " << equip << std::endl;
 }
 
-void Data::restaurantData()
+void Data::collectRestaurantData()
 {
     std::cout << "Restraurant Personal working: " << personal.workers << std::endl;
 }
@@ -404,14 +404,14 @@ int main()
     std::cout << std::endl;
 
     Equipment hardware;
-    hardware.laundromatEquipment();
-    hardware.restaurantEquipment();
-    hardware.speakerEquipment();
+    hardware.countLaundromatEquipment();
+    hardware.countRestaurantEquipment();
+    hardware.countSpeakerEquipment();
     std::cout << std::endl;
 
     Data numbers;
-    numbers.laundromatData();
-    numbers.restaurantData();
+    numbers.collectLaundromatData();
+    numbers.collectRestaurantData();
     std::cout << std::endl;
 
     std::cout << "good to go!" << std::endl;
