@@ -59,12 +59,22 @@ struct Laundromat
         float waterUsed;
         float powUsed;
         int washes;
-        WashingMachine(float water, float power, int wsh); 
+        WashingMachine(float water, float power, int wsh);
+        ~WashingMachine()
+        {
+            std::cout << "Destroying Washing Machine Constuctor!" << std::endl;
+        } 
         void wash(); 
         float countChange(int coins);
         float downTime(float timeOff);
     };
+
     Laundromat(int wash, int dryers);
+    ~Laundromat()
+    {
+        std::cout << "Destorying Laundromat constructor!" << std::endl;
+    }
+
     void waterShutOff();
     void washClothes();
     void dryClothes();
@@ -138,7 +148,12 @@ struct Restaurant
     float amFoodPerFamily = 79.48f;
     float hoursWorked = 86.77f;
     float amountPerTable;
+
     Restaurant();
+    ~Restaurant()
+    {
+        std::cout << "Destorying Restaurant Contructor!" << std::endl;
+    }
 
     struct Server
     {
@@ -146,12 +161,18 @@ struct Restaurant
         long phoneNum = 8434305954;
         int amOfPeopleServed;
         float hoursWorked;
+       
         Server():
         amOfPeopleServed(8),
         hoursWorked(17.5f)
         {
             std::cout << "Server Class Constructed!" << std::endl;
         }
+        ~Server()
+        {
+            std::cout << "Destroying Server Constructor!" << std::endl;
+        }
+
         float currPay = 9.45f;
         void serveCustomer();
         void cleanTable();
@@ -222,7 +243,13 @@ struct Speakers
     int time;
     float freqRange = 15000.00f;
     float impedence = 59.45f;
+    
     Speakers();
+    ~Speakers()
+    {
+        std::cout << "Destroying Speaker Constructor!" << std::endl;
+    }
+    
     void produceAudio();
     void receiveSignal();
     void vibrateCone();
