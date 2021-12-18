@@ -118,7 +118,7 @@ numDryers (dryers)
 }
 void Laundromat::washClothes()
 {
-    std::cout << "Number Of Dryers: " << numDryers << std::endl;
+    std::cout << "Number Of Dryers: " << this->numDryers << std::endl;
     std::cout << std::endl;
 }
 
@@ -145,10 +145,10 @@ void Laundromat::WashingMachine::wash()
 
 void Laundromat::waterShutOff()
 {
-    amOfWaterUsedDaily = 0;
+
     while(amOfWaterUsedDaily < 200)
     {
-        std::cout << "Amount Of Water Used: " << amOfWaterUsedDaily <<std::endl;
+        std::cout << "Amount Of Water Used: " << this->amOfWaterUsedDaily <<std::endl;
         amOfWaterUsedDaily += 12.43f;
     }
     std::cout << std::endl;            
@@ -238,8 +238,8 @@ void Restaurant::tableAmount(int platePerFamily, int families)
 {
     while (families < platesServed) 
     {
-        amountPerTable += (platePerFamily * amFoodPerFamily);
-        std::cout << "The Amount Of food served Total Is: " << amountPerTable << std::endl;
+        amountPerTable += (platePerFamily * this->amFoodPerFamily);
+        std::cout << "The Amount Of food served Total Is: " << this->amountPerTable << std::endl;
         ++families;
     }
     std::cout << std::endl;
@@ -295,7 +295,7 @@ void Speakers::produceAudio()
     while (time < 2)
     {
         std::cout << "Producing Audio!!!!!!!" << std::endl;
-        ++time;
+        ++this->time;
     }
     std::cout << std::endl;
 }
@@ -419,6 +419,7 @@ int main()
     Laundromat device(54, 40);
     device.washClothes();
     device.dryClothes();
+    std::cout << "Grabbing Laundromat Member Variable numWashers = " << device.numWashers << std::endl;
     std::cout << std::endl;
 
     Restaurant food;
