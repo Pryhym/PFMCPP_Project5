@@ -399,7 +399,6 @@ int main()
 
     Speakers speak;
     speak.receiveSignal();
-    speak.produceAudio();
     speak.vibrateCone();
     std::cout << std::endl;
 
