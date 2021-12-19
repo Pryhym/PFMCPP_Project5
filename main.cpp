@@ -114,7 +114,7 @@ numWashers (wash),
 numDryers (dryers)
 {
     std::cout << "Laundromat Class" << std::endl;
-    std::cout << "constructing the Amount of Water Used is: " << amOfWaterUsedDaily << std::endl;
+   
 }
 void Laundromat::washClothes()
 {
@@ -302,7 +302,7 @@ void Speakers::produceAudio()
 
 void Speakers::receiveSignal()
 {
-    std::cout << "Model Number: " << modelNum << std::endl;
+    std::cout << "Model Number: " << this->modelNum << std::endl;
 }
 
 void Speakers::vibrateCone()
@@ -418,29 +418,40 @@ int main()
 {
     Laundromat device(54, 40);
     device.washClothes();
-    device.dryClothes();
-    std::cout << "Grabbing Laundromat Member Variable numWashers = " << device.numWashers << std::endl;
+    std::cout << "Number Of Dryers: " << device.numDryers << std::endl;
     std::cout << std::endl;
 
     Restaurant food;
     food.tableAmount(3,1);
+     std::cout << "The Amount Of food served Total Is: " << food.amountPerTable << std::endl;
     std::cout << std::endl;
 
     Speakers speak;
     speak.receiveSignal();
     speak.produceAudio();
-    speak.vibrateCone();
+    std::cout << "Model Number: " << speak.modelNum << std::endl;
     std::cout << std::endl;
 
+    Restaurant::Server carry;
     Equipment hardware;
     hardware.countLaundromatEquipment();
     hardware.countRestaurantEquipment();
     hardware.countSpeakerEquipment();
     std::cout << std::endl;
+    std::cout << "Laundromat Machines in Inventory: " << device.numWashers << std::endl;
+    std::cout << "Laundromat Dryers in Inventory: " << device.numDryers << std::endl;
+    std::cout << "Restaurant Workers: " << food.workers << std::endl;
+    std::cout << "Amount of Server Carriers In Inventory: " << carry.amOfPeopleServed << std::endl;
+    std::cout << "Speaker Size: " << speak.size << std::endl;
+    std::cout << "Speaker Frequency Range: " << speak.freqRange << std::endl;
+    std::cout << std::endl;
 
     Data numbers;
     numbers.collectLaundromatData();
     numbers.collectRestaurantData();
+    int equip = device.numWashers * device.numDryers;
+    std::cout << "Laundromat Equipment Amount: " << equip << std::endl;
+    std::cout << "Restraurant Personal working: " << food.workers << std::endl;
     std::cout << std::endl;
 
     std::cout << "good to go!" << std::endl;
