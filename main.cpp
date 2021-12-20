@@ -107,6 +107,7 @@ struct Laundromat
     void washClothes();
     void dryClothes();
     float makeChange(float price, float amPaid);  
+    void displayWaterUsed(); 
 };
 
 Laundromat::Laundromat(int wash, int dryers) :
@@ -125,6 +126,11 @@ void Laundromat::washClothes()
 void Laundromat::dryClothes()
 {
 
+}
+
+void Laundromat::displayWaterUsed()
+{
+    std::cout << "The Amount of Water used Daily is " << this->amOfWaterUsedDaily << " Gallons." << std::endl;
 }
 
 float Laundromat::makeChange(float price, float amPaid)
@@ -211,12 +217,18 @@ struct Restaurant
     void serveFood();
     float collectPayment(float payment);
     void provideEatingUtensils();
+    void displayPlatesServed();
 };
 
 Restaurant::Restaurant():
 workers(8)
 {
     std::cout << "Restaurant Class" << std::endl;
+}
+
+void Restaurant::displayPlatesServed()
+{
+     std::cout << "The Restaurant has " << this->platesServed << " Plates Served.." << std::endl;
 }
 
 void Restaurant::serveFood()
@@ -281,6 +293,7 @@ struct Speakers
     void produceAudio();
     void receiveSignal();
     void vibrateCone();
+    void displayImpedence();
 };
 
 Speakers::Speakers():
@@ -298,6 +311,11 @@ void Speakers::produceAudio()
         ++this->time;
     }
     std::cout << std::endl;
+}
+
+void Speakers::displayImpedence()
+{
+    std::cout << "The Impedence of the Speaker is " << this->impedence << " Ohms.." << std::endl;
 }
 
 void Speakers::receiveSignal()
@@ -320,6 +338,7 @@ struct Equipment
     Restaurant dishWasher;
     Restaurant::Server carrier;
     Speakers tweaters;
+    int heavyMachines = this->machine.numWashers + this->machine.numDryers;
 
     Equipment();
     ~Equipment()
@@ -330,6 +349,7 @@ struct Equipment
     void countLaundromatEquipment();
     void countRestaurantEquipment();
     void countSpeakerEquipment();
+    void displayHeavyMachines();
 };
 Equipment::Equipment():
 machine(20, 34),
@@ -340,6 +360,11 @@ tweaters()
 {
     
     std::cout << "Equipment Class Created " << std::endl;
+}
+
+void Equipment::displayHeavyMachines()
+{
+     std::cout << "The Company has " << this->heavyMachines << " Machines.." << std::endl;
 }
 
 void Equipment::countLaundromatEquipment()
@@ -378,6 +403,7 @@ struct Data
     
     void collectLaundromatData();
     void collectRestaurantData();
+    void displayWorkers();
 };
 
 Data::Data():
@@ -387,6 +413,11 @@ parts(),
 components(624.54f, 215.34f, 12)
 {
     std::cout << "Data Class Constructed!" << std::endl;
+}
+
+void Data::displayWorkers()
+{
+    std::cout << "There are " << this->personal.workers << " People working at the Restaurant.." << std::endl;
 }
 
 void Data::collectLaundromatData()
@@ -416,42 +447,50 @@ void Data::collectRestaurantData()
 #include <iostream>
 int main()
 {
-    Laundromat device(54, 40);
+   Laundromat device(54, 40);
     device.washClothes();
-    std::cout << "Number Of Dryers: " << device.numDryers << std::endl;
+    device.dryClothes();
+    std::cout << std::endl;
+    //task function and cout
+    std::cout << "The Amount of Water used Daily is " << device.amOfWaterUsedDaily << " Gallons." << std::endl;
+    device.displayWaterUsed();
     std::cout << std::endl;
 
     Restaurant food;
     food.tableAmount(3,1);
-     std::cout << "The Amount Of food served Total Is: " << food.amountPerTable << std::endl;
+    std::cout << std::endl;
+    //task function and cout
+    std::cout << "The Restaurant has " << food.platesServed << " Plates Served.." << std::endl;
+    food.displayPlatesServed();
     std::cout << std::endl;
 
     Speakers speak;
     speak.receiveSignal();
     speak.produceAudio();
-    std::cout << "Model Number: " << speak.modelNum << std::endl;
+    speak.vibrateCone();
     std::cout << std::endl;
-
-    Restaurant::Server carry;
+    //task function and cout
+    std::cout << "The Impedence of the Speaker is " << speak.impedence << " Ohms.." << std::endl;
+    speak.displayImpedence();
+    std::cout << std::endl;
+    
     Equipment hardware;
     hardware.countLaundromatEquipment();
     hardware.countRestaurantEquipment();
     hardware.countSpeakerEquipment();
     std::cout << std::endl;
-    std::cout << "Laundromat Machines in Inventory: " << device.numWashers << std::endl;
-    std::cout << "Laundromat Dryers in Inventory: " << device.numDryers << std::endl;
-    std::cout << "Restaurant Workers: " << food.workers << std::endl;
-    std::cout << "Amount of Server Carriers In Inventory: " << carry.amOfPeopleServed << std::endl;
-    std::cout << "Speaker Size: " << speak.size << std::endl;
-    std::cout << "Speaker Frequency Range: " << speak.freqRange << std::endl;
+    //task function and cout
+    std::cout << "The Company has " << hardware.heavyMachines << " Machines.." << std::endl;
+    hardware.displayHeavyMachines();
     std::cout << std::endl;
-
+    
     Data numbers;
     numbers.collectLaundromatData();
     numbers.collectRestaurantData();
-    int equip = device.numWashers * device.numDryers;
-    std::cout << "Laundromat Equipment Amount: " << equip << std::endl;
-    std::cout << "Restraurant Personal working: " << food.workers << std::endl;
+    std::cout << std::endl;
+    //task function and cout
+    std::cout << "There are " << numbers.personal.workers << " People working at the Restaurant.." << std::endl;
+    numbers.displayWorkers();
     std::cout << std::endl;
 
     std::cout << "good to go!" << std::endl;
