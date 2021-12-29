@@ -505,7 +505,7 @@ struct DataWrapper
 #include <iostream>
 int main()
 {
-   LaundromatWrapper LaundromatWrapper(new Laundromat(5, 8));
+    LaundromatWrapper LaundromatWrapper(new Laundromat(5, 8));
     LaundromatWrapper.pointerToLaundromat->washClothes();
     LaundromatWrapper.pointerToLaundromat->dryClothes();
     std::cout << std::endl;
