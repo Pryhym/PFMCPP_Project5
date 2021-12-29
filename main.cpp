@@ -71,6 +71,7 @@ void someMemberFunction(const Axe& axe);
 
 
 #include <iostream>
+#include "LeakedObjectDetector.h"
 /*
  copied UDT 1:
  */
@@ -110,6 +111,7 @@ struct Laundromat
     void dryClothes();
     float makeChange(float price, float amPaid);  
     void displayWaterUsed(); 
+    JUCE_LEAK_DETECTOR(Laundromat)
 };
 
 Laundromat::Laundromat(int wash, int dryers) :
@@ -173,6 +175,16 @@ float downTime(float timeOff)
 {
     return timeOff;
 }
+
+struct LaundromatWrapper
+{
+    LaundromatWrapper(Laundromat* ptr): pointerToLaundromat(ptr) {}
+    ~LaundromatWrapper()
+    {
+        delete pointerToLaundromat;
+    }
+    Laundromat* pointerToLaundromat = nullptr;
+};
 /*
  copied UDT 2:
  */
@@ -220,6 +232,7 @@ struct Restaurant
     float collectPayment(float payment);
     void provideEatingUtensils();
     void displayPlatesServed();
+    JUCE_LEAK_DETECTOR(Restaurant)
 };
 
 Restaurant::Restaurant():
@@ -274,6 +287,16 @@ float Restaurant::Server::countTip(float tip)
     return tip;
 }
 
+struct RestaurantWrapper
+{
+    RestaurantWrapper(Restaurant* ptr): pointsToRestaurant(ptr){}
+    ~RestaurantWrapper()
+    {
+        delete pointsToRestaurant;
+    }
+    Restaurant* pointsToRestaurant = nullptr;
+};
+
 /*
  copied UDT 3:
  */
@@ -296,6 +319,7 @@ struct Speakers
     void receiveSignal();
     void vibrateCone();
     void displayImpedence();
+    JUCE_LEAK_DETECTOR(Speakers)
 };
 
 Speakers::Speakers():
@@ -329,6 +353,16 @@ void Speakers::vibrateCone()
 {
     
 }
+
+struct SpeakerWrapper
+{
+    SpeakerWrapper(Speakers* ptr): pointsToSpeaker(ptr){}
+    ~SpeakerWrapper()
+    {
+        delete pointsToSpeaker;
+    }
+    Speakers* pointsToSpeaker = nullptr;
+};
 /*
  new UDT 4:
  with 2 member functions
@@ -352,6 +386,7 @@ struct Equipment
     void countRestaurantEquipment();
     void countSpeakerEquipment();
     void displayHeavyMachines();
+    JUCE_LEAK_DETECTOR(Equipment)
 };
 Equipment::Equipment():
 machine(20, 34),
@@ -386,6 +421,16 @@ void Equipment::countSpeakerEquipment()
     std::cout << "Speaker Size: " << tweaters.size << std::endl;
     std::cout << "Speaker Frequency Range: " << tweaters.freqRange << std::endl;
 }
+
+struct EquipmentWrapper
+{
+    EquipmentWrapper(Equipment* ptr): pointsToEquipment(ptr){}
+    ~EquipmentWrapper()
+    {
+        delete pointsToEquipment;
+    }
+    Equipment* pointsToEquipment = nullptr;
+};
 /*
  new UDT 5:
  with 2 member functions
@@ -406,6 +451,7 @@ struct Data
     void collectLaundromatData();
     void collectRestaurantData();
     void displayWorkers();
+    JUCE_LEAK_DETECTOR(Data)
 };
 
 Data::Data():
@@ -432,6 +478,16 @@ void Data::collectRestaurantData()
 {
     std::cout << "Restraurant Personal working: " << personal.workers << std::endl;
 }
+
+struct DataWrapper
+{
+    DataWrapper(Data* ptr): pointsToData(ptr){}
+    ~DataWrapper()
+    {
+        delete pointsToData;
+    }
+    Data* pointsToData =nullptr;
+};
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
 
@@ -449,50 +505,50 @@ void Data::collectRestaurantData()
 #include <iostream>
 int main()
 {
-   Laundromat device(54, 40);
-    device.washClothes();
-    device.dryClothes();
+   LaundromatWrapper LaundromatWrapper(new Laundromat(5, 8));
+    LaundromatWrapper.pointerToLaundromat->washClothes();
+    LaundromatWrapper.pointerToLaundromat->dryClothes();
     std::cout << std::endl;
     //task function and cout
-    std::cout << "The Amount of Water used Daily is " << device.amOfWaterUsedDaily << " Gallons." << std::endl;
-    device.displayWaterUsed();
+    std::cout << "The Amount of Water used Daily is " << LaundromatWrapper.pointerToLaundromat->amOfWaterUsedDaily << " Gallons." << std::endl;
+    LaundromatWrapper.pointerToLaundromat->displayWaterUsed();
     std::cout << std::endl;
 
-    Restaurant food;
-    food.tableAmount(3,1);
+    RestaurantWrapper RestaurantWrapper(new Restaurant());
+    RestaurantWrapper.pointsToRestaurant->tableAmount(3,1);
     std::cout << std::endl;
     //task function and cout
-    std::cout << "The Restaurant has " << food.platesServed << " Plates Served.." << std::endl;
-    food.displayPlatesServed();
+    std::cout << "The Restaurant has " << RestaurantWrapper.pointsToRestaurant->platesServed << " Plates Served.." << std::endl;
+    RestaurantWrapper.pointsToRestaurant->displayPlatesServed();
     std::cout << std::endl;
 
-    Speakers speak;
-    speak.receiveSignal();
-    speak.produceAudio();
-    speak.vibrateCone();
+    SpeakerWrapper SpeakerWrapper(new Speakers());
+    SpeakerWrapper.pointsToSpeaker->receiveSignal();
+    SpeakerWrapper.pointsToSpeaker->produceAudio();
+    SpeakerWrapper.pointsToSpeaker->vibrateCone();
     std::cout << std::endl;
     //task function and cout
-    std::cout << "The Impedence of the Speaker is " << speak.impedence << " Ohms.." << std::endl;
-    speak.displayImpedence();
+    std::cout << "The Impedence of the Speaker is " << SpeakerWrapper.pointsToSpeaker->impedence << " Ohms.." << std::endl;
+    SpeakerWrapper.pointsToSpeaker->displayImpedence();
     std::cout << std::endl;
     
-    Equipment hardware;
-    hardware.countLaundromatEquipment();
-    hardware.countRestaurantEquipment();
-    hardware.countSpeakerEquipment();
+    EquipmentWrapper EquipmentWrapper(new Equipment());
+    EquipmentWrapper.pointsToEquipment->countLaundromatEquipment();
+    EquipmentWrapper.pointsToEquipment->countRestaurantEquipment();
+    EquipmentWrapper.pointsToEquipment->countSpeakerEquipment();
     std::cout << std::endl;
     //task function and cout
-    std::cout << "The Company has " << hardware.heavyMachines << " Machines.." << std::endl;
-    hardware.displayHeavyMachines();
+    std::cout << "The Company has " << EquipmentWrapper.pointsToEquipment->heavyMachines << " Machines.." << std::endl;
+    EquipmentWrapper.pointsToEquipment->displayHeavyMachines();
     std::cout << std::endl;
     
-    Data numbers;
-    numbers.collectLaundromatData();
-    numbers.collectRestaurantData();
+    DataWrapper DataWrapper(new Data());
+    DataWrapper.pointsToData->collectLaundromatData();
+    DataWrapper.pointsToData->collectRestaurantData();
     std::cout << std::endl;
     //task function and cout
-    std::cout << "There are " << numbers.personal.workers << " People working at the Restaurant.." << std::endl;
-    numbers.displayWorkers();
+    std::cout << "There are " << DataWrapper.pointsToData->personal.workers << " People working at the Restaurant.." << std::endl;
+    DataWrapper.pointsToData->displayWorkers();
     std::cout << std::endl;
 
     std::cout << "good to go!" << std::endl;
