@@ -39,116 +39,11 @@
 /*
  copied UDT 1:
  */
-struct Laundromat
-{
-    int numWashers;
-    int numDryers; 
-    float amOfWaterUsedDaily {20.5f}; 
-    float amOfEnergyUsedDaily = 70.21f;
-    float amOfMoneyMadeDaily = 500.75f;
 
-    struct WashingMachine
-    {
-        std::string brand = "Maytag";
-        int modelNum;
-        float waterUsed;
-        float powUsed;
-        int washes;
-        WashingMachine(float water, float power, int wsh);
-        ~WashingMachine()
-        {
-            std::cout << "Destroying Washing Machine Constuctor!" << std::endl;
-        } 
-        void wash(); 
-        float countChange(int coins);
-        float downTime(float timeOff);
-    };
 
-    Laundromat(int wash, int dryers);
-    ~Laundromat()
-    {
-        std::cout << "Destorying Laundromat constructor!" << std::endl;
-    }
 
-    void waterShutOff();
-    void washClothes();
-    void dryClothes();
-    float makeChange(float price, float amPaid);  
-    void displayWaterUsed(); 
-    JUCE_LEAK_DETECTOR(Laundromat)
-};
 
-Laundromat::Laundromat(int wash, int dryers) :
-numWashers (wash),
-numDryers (dryers)
-{
-    std::cout << "Laundromat Class" << std::endl;
-   
-}
-void Laundromat::washClothes()
-{
-    std::cout << "Number Of Dryers: " << this->numDryers << std::endl;
-    std::cout << std::endl;
-}
 
-void Laundromat::dryClothes()
-{
-
-}
-
-void Laundromat::displayWaterUsed()
-{
-    std::cout << "The Amount of Water used Daily is " << this->amOfWaterUsedDaily << " Gallons." << std::endl;
-}
-
-float Laundromat::makeChange(float price, float amPaid)
-{
-    return amPaid - price;
-}
-Laundromat::WashingMachine::WashingMachine(float water, float power, int wsh):
-waterUsed(water),
-powUsed(power),
-washes(wsh)
-{
-
-}
-void Laundromat::WashingMachine::wash()
-{
-
-}
-
-void Laundromat::waterShutOff()
-{
-
-    while(amOfWaterUsedDaily < 200)
-    {
-        std::cout << "Amount Of Water Used: " << this->amOfWaterUsedDaily <<std::endl;
-        amOfWaterUsedDaily += 12.43f;
-    }
-    std::cout << std::endl;            
-    std::cout << "Water Exceeded Daily Amount!" << std::endl;
-    std::cout << std::endl;
-}
-
-float countChange(int coins)
-{
-    return coins;
-}
-
-float downTime(float timeOff)
-{
-    return timeOff;
-}
-
-struct LaundromatWrapper
-{
-    LaundromatWrapper(Laundromat* ptr): pointerToLaundromat(ptr) {}
-    ~LaundromatWrapper()
-    {
-        delete pointerToLaundromat;
-    }
-    Laundromat* pointerToLaundromat = nullptr;
-};
 /*
  copied UDT 2:
  */
