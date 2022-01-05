@@ -1,4 +1,4 @@
-#pragma once
+
 #include "WashingMachine.h"
 #include "Laundromat.h"
 
@@ -14,8 +14,6 @@ void WashingMachine::wash()
 
 }
 
-
-
 float countChange(int coins)
 {
     return coins;
@@ -25,3 +23,4 @@ float downTime(float timeOff)
 {
     return timeOff;
 }
+

@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-#include <memory>
 
 struct WashingMachine
     {
@@ -18,3 +17,8 @@ struct WashingMachine
         float countChange(int coins);
         float downTime(float timeOff);
     };
+
+
+
+
+
