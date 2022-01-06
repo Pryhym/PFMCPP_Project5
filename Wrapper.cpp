@@ -13,65 +13,26 @@ LaundromatWrapper::~LaundromatWrapper()
     delete pointerToLaundromat;
 }
 
-  RestaurantWrapper::RestaurantWrapper(Restaurant* ptr) : pointsToRestaurant(ptr){}
-    RestaurantWrapper::~RestaurantWrapper()
-    {
-        delete pointsToRestaurant;
-    }
+RestaurantWrapper::RestaurantWrapper(Restaurant* ptr) : pointsToRestaurant(ptr){}
+RestaurantWrapper::~RestaurantWrapper()
+{
+    delete pointsToRestaurant;
+}
 
-   SpeakerWrapper::SpeakerWrapper(Speakers* ptr): pointsToSpeaker(ptr){}
-    SpeakerWrapper::~SpeakerWrapper()
-    {
-        delete pointsToSpeaker;
-    } 
+SpeakerWrapper::SpeakerWrapper(Speakers* ptr): pointsToSpeaker(ptr){}
+SpeakerWrapper::~SpeakerWrapper()
+{
+    delete pointsToSpeaker;
+} 
 
-    EquipmentWrapper::EquipmentWrapper(Equipment* ptr): pointsToEquipment(ptr){}
-    EquipmentWrapper::~EquipmentWrapper()
-    {
-        delete pointsToEquipment;
-    }
+EquipmentWrapper::EquipmentWrapper(Equipment* ptr): pointsToEquipment(ptr){}
+EquipmentWrapper::~EquipmentWrapper()
+{
+    delete pointsToEquipment;
+}
 
-    DataWrapper::DataWrapper(Data* ptr): pointsToData(ptr){}
-    DataWrapper::~DataWrapper()
-    {
-        delete pointsToData;
-    }
-
-
-
-
-
-
-
-
-
-
-  
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+DataWrapper::DataWrapper(Data* ptr): pointsToData(ptr){}
+DataWrapper::~DataWrapper()
+{
+    delete pointsToData;
+}
