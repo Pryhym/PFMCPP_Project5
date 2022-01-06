@@ -6,7 +6,7 @@ hoursWorked(17.5f){}
 
 Server::~Server()
 {
-    std::cout << "Destroying Server Constuctor!" << std::endl;
+    std::cout << "Server Class Now  Out of Scope!" << std::endl;
 }
 
 void Server::serveCustomer()

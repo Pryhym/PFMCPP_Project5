@@ -9,7 +9,7 @@ pipe(24.3f, 43.1f, 9)
 
 Equipment::~Equipment()
 {
-    std::cout << "Destroying Equipment Constuctor!" << std::endl;
+    std::cout << "Equipment Class Now  Out of Scope!" << std::endl;
 }
 
 void Equipment::displayHeavyMachines()

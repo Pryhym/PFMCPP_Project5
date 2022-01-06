@@ -8,7 +8,7 @@ workers(8)
 
 Restaurant::~Restaurant()
 {
-    std::cout << "Destroying Restaurant Constuctor!" << std::endl;
+    std::cout << "Restaurant Class Now  Out of Scope!" << std::endl;
 }
 
 void Restaurant::displayPlatesServed()

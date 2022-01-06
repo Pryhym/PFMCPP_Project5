@@ -9,7 +9,7 @@ freqRange()
 
 Speakers::~Speakers()
 {
-    std::cout << "Destroying Speakers Constuctor!" << std::endl;
+    std::cout << "Speakers Class Now  Out of Scope!" << std::endl;
 }
 
 void Speakers::produceAudio()

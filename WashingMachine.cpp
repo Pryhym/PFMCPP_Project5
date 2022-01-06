@@ -12,7 +12,7 @@ washes(wsh)
 
 WashingMachine::~WashingMachine()
 {
-    std::cout << "Destroying Washing Machine Constuctor!" << std::endl;
+    std::cout << "Washing Machine Class Now  Out of Scope!" << std::endl;
 }
 
 void WashingMachine::wash()

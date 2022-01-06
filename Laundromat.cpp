@@ -12,7 +12,7 @@ numDryers (dryers)
 
 Laundromat::~Laundromat()
 {
-    std::cout << "Destroying Laundromat Constuctor!" << std::endl;
+    std::cout << "Laundromat Class Now  Out of Scope!" << std::endl;
 }
 
 void Laundromat::washClothes()

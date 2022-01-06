@@ -10,7 +10,7 @@ components(624.54f, 215.34f, 12)
 }
 Data::~Data()
 {
-    std::cout << "Destroying Data Constuctor!" << std::endl;
+    std::cout << " Data Class Now  Out of Scope!" << std::endl;
 }
 
 void Data::displayWorkers()
