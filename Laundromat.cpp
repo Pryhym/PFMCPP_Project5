@@ -10,7 +10,10 @@ numDryers (dryers)
    
 }
 
-Laundromat::~Laundromat(){}
+Laundromat::~Laundromat()
+{
+    std::cout << "Destroying Laundromat Constuctor!" << std::endl;
+}
 
 void Laundromat::washClothes()
 {

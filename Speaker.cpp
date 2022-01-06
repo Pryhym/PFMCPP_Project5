@@ -7,7 +7,10 @@ freqRange()
     std::cout << "Speakers Class Created" << std::endl;
 }
 
-Speakers::~Speakers(){}
+Speakers::~Speakers()
+{
+    std::cout << "Destroying Speakers Constuctor!" << std::endl;
+}
 
 void Speakers::produceAudio()
 {

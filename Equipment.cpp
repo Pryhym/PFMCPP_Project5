@@ -7,7 +7,10 @@ pipe(24.3f, 43.1f, 9)
     std::cout << "Equipment Class Created " << std::endl;
 }
 
-Equipment::~Equipment(){}
+Equipment::~Equipment()
+{
+    std::cout << "Destroying Equipment Constuctor!" << std::endl;
+}
 
 void Equipment::displayHeavyMachines()
 {

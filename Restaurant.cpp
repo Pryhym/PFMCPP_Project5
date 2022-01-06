@@ -6,7 +6,10 @@ workers(8)
     std::cout << "Restaurant Class" << std::endl;
 }
 
-Restaurant::~Restaurant(){}
+Restaurant::~Restaurant()
+{
+    std::cout << "Destroying Restaurant Constuctor!" << std::endl;
+}
 
 void Restaurant::displayPlatesServed()
 {

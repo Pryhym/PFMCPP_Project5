@@ -10,7 +10,10 @@ washes(wsh)
 
 }
 
-WashingMachine::~WashingMachine(){}
+WashingMachine::~WashingMachine()
+{
+    std::cout << "Destroying Washing Machine Constuctor!" << std::endl;
+}
 
 void WashingMachine::wash()
 {
