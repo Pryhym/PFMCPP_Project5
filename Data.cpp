@@ -8,6 +8,7 @@ components(624.54f, 215.34f, 12)
 {
     std::cout << "Data Class Constructed!" << std::endl;
 }
+Data::~Data(){}
 
 void Data::displayWorkers()
 {

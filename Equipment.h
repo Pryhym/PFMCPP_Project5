@@ -17,7 +17,7 @@ struct Equipment
     int numHeavyMachines = this->machine.numWashers + this->machine.numDryers;
 
     Equipment();
-    ~Equipment(){}
+    ~Equipment();
 
     void countLaundromatEquipment();
     void countRestaurantEquipment();

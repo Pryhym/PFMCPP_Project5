@@ -10,6 +10,8 @@ numDryers (dryers)
    
 }
 
+Laundromat::~Laundromat(){}
+
 void Laundromat::washClothes()
 {
     std::cout << "Number Of Dryers: " << this->numDryers << std::endl;

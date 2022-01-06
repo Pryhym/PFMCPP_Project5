@@ -7,6 +7,8 @@ freqRange()
     std::cout << "Speakers Class Created" << std::endl;
 }
 
+Speakers::~Speakers(){}
+
 void Speakers::produceAudio()
 {
     while (time < 2)

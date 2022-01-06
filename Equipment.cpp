@@ -7,6 +7,8 @@ pipe(24.3f, 43.1f, 9)
     std::cout << "Equipment Class Created " << std::endl;
 }
 
+Equipment::~Equipment(){}
+
 void Equipment::displayHeavyMachines()
 {
      std::cout << "The Company has " << this->numHeavyMachines << " Machines.." << std::endl;

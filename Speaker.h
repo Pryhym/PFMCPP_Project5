@@ -12,7 +12,7 @@ struct Speakers
     float impedence = 59.45f;
     
     Speakers();
-    ~Speakers(){}
+    ~Speakers();
     
     void produceAudio();
     void receiveSignal();

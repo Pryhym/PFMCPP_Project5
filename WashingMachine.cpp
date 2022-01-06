@@ -9,6 +9,9 @@ washes(wsh)
 {
 
 }
+
+WashingMachine::~WashingMachine(){}
+
 void WashingMachine::wash()
 {
 

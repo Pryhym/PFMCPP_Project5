@@ -14,7 +14,7 @@ struct Laundromat
     
 
     Laundromat(int wash, int dryers);
-    ~Laundromat(){}
+    ~Laundromat();
 
     void waterShutOff();
     void washClothes();

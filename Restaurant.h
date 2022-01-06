@@ -11,7 +11,7 @@ struct Restaurant
     float amountPerTable;
 
     Restaurant();
-    ~Restaurant(){} 
+    ~Restaurant(); 
 
     void tableAmount(int platePerFamily, int families);
     void serveFood();

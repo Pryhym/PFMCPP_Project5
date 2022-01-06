@@ -9,7 +9,7 @@ struct WashingMachine
         float powUsed;
         int washes;
         WashingMachine(float water, float power, int wsh);
-        ~WashingMachine(){} 
+        ~WashingMachine(); 
         
         void wash(); 
         float countChange(int coins);

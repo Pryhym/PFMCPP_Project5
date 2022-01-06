@@ -13,7 +13,7 @@ struct Data
     WashingMachine components;
 
     Data();
-    ~Data(){}
+    ~Data();
     
     void collectLaundromatData();
     void collectRestaurantData();

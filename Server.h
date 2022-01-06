@@ -9,10 +9,8 @@ struct Server
         int amOfPeopleServed;
         float hoursWorked;
        
-        Server():
-        amOfPeopleServed(8),
-        hoursWorked(17.5f){}
-        ~Server(){}
+        Server();
+        ~Server();
 
         float currPay = 9.45f;
         void serveCustomer();

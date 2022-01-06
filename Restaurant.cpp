@@ -6,6 +6,8 @@ workers(8)
     std::cout << "Restaurant Class" << std::endl;
 }
 
+Restaurant::~Restaurant(){}
+
 void Restaurant::displayPlatesServed()
 {
      std::cout << "The Restaurant has " << this->platesServed << " Plates Served.." << std::endl;
