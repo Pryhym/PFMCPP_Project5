@@ -14,13 +14,10 @@ struct Equipment
     Restaurant dishWasher;
     Server carrier;
     Speakers tweaters;
-    int heavyMachines = this->machine.numWashers + this->machine.numDryers;
+    int numHeavyMachines = this->machine.numWashers + this->machine.numDryers;
 
     Equipment();
-    ~Equipment()
-    {
-        std::cout << "Equipment Class Destroyed!" << std::endl;
-    }
+    ~Equipment(){}
 
     void countLaundromatEquipment();
     void countRestaurantEquipment();

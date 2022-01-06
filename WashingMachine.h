@@ -9,10 +9,8 @@ struct WashingMachine
         float powUsed;
         int washes;
         WashingMachine(float water, float power, int wsh);
-        ~WashingMachine()
-        {
-            std::cout << "Destroying Washing Machine Constuctor!" << std::endl;
-        } 
+        ~WashingMachine(){} 
+        
         void wash(); 
         float countChange(int coins);
         float downTime(float timeOff);

@@ -14,10 +14,7 @@ struct Laundromat
     
 
     Laundromat(int wash, int dryers);
-    ~Laundromat()
-    {
-        std::cout << "Destorying Laundromat constructor!" << std::endl;
-    }
+    ~Laundromat(){}
 
     void waterShutOff();
     void washClothes();

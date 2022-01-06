@@ -12,10 +12,7 @@ struct Speakers
     float impedence = 59.45f;
     
     Speakers();
-    ~Speakers()
-    {
-        std::cout << "Destroying Speaker Constructor!" << std::endl;
-    }
+    ~Speakers(){}
     
     void produceAudio();
     void receiveSignal();

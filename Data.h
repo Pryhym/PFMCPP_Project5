@@ -13,10 +13,7 @@ struct Data
     WashingMachine components;
 
     Data();
-    ~Data()
-    {
-        std::cout << "Data Class Destroyed!" << std::endl;
-    }
+    ~Data(){}
     
     void collectLaundromatData();
     void collectRestaurantData();

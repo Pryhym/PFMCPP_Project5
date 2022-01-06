@@ -77,7 +77,7 @@ int main()
     EquipmentWrapper.pointsToEquipment->countSpeakerEquipment();
     std::cout << std::endl;
     //task function and cout
-    std::cout << "The Company has " << EquipmentWrapper.pointsToEquipment->heavyMachines << " Machines.." << std::endl;
+    std::cout << "The Company has " << EquipmentWrapper.pointsToEquipment->numHeavyMachines << " Machines.." << std::endl;
     EquipmentWrapper.pointsToEquipment->displayHeavyMachines();
     std::cout << std::endl;
     

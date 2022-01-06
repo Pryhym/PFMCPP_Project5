@@ -1,24 +1,15 @@
 #include "Equipment.h"
-#include "Laundromat.h"
-#include "WashingMachine.h"
-#include "Restaurant.h"
-#include "Server.h"
-#include "Speaker.h"
 
 Equipment::Equipment():
 machine(20, 34),
-pipe(24.3f, 43.1f, 9),
-dishWasher(),
-carrier(),
-tweaters()
-{
-    
+pipe(24.3f, 43.1f, 9)
+{   
     std::cout << "Equipment Class Created " << std::endl;
 }
 
 void Equipment::displayHeavyMachines()
 {
-     std::cout << "The Company has " << this->heavyMachines << " Machines.." << std::endl;
+     std::cout << "The Company has " << this->numHeavyMachines << " Machines.." << std::endl;
 }
 
 void Equipment::countLaundromatEquipment()

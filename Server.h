@@ -11,14 +11,8 @@ struct Server
        
         Server():
         amOfPeopleServed(8),
-        hoursWorked(17.5f)
-        {
-            std::cout << "Server Class Constructed!" << std::endl;
-        }
-        ~Server()
-        {
-            std::cout << "Destroying Server Constructor!" << std::endl;
-        }
+        hoursWorked(17.5f){}
+        ~Server(){}
 
         float currPay = 9.45f;
         void serveCustomer();

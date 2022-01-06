@@ -11,12 +11,7 @@ struct Restaurant
     float amountPerTable;
 
     Restaurant();
-    ~Restaurant()
-    {
-        std::cout << "Destorying Restaurant Contructor!" << std::endl;
-    }
-
-    
+    ~Restaurant(){} 
 
     void tableAmount(int platePerFamily, int families);
     void serveFood();
